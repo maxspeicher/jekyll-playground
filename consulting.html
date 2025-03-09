@@ -1,0 +1,89 @@
+---
+layout: default
+title: "Consulting"
+description: "I'm a freelance consultant for product, design thinking, &amp; conversion rate optimization. I help businesses create customer-centric digital products and achieve higher revenues, more growth &amp; happier customers through a science-based, integrated approach."
+keywords: "freelance consulting, freelance consultant, product management, design thinking, conversion rate optimization, CRO, freelance product management consulting, freelance product management consultant, freelance design thinking consulting, freelance design thinking consultant, freelance conversion rate optimization consulting, freelance conversion rate optimization consultant, freelance CRO consulting, freelance CRO consultant, product management consulting, product management consultant, design thinking consulting, design thinking consultant, conversion rate optimization consulting, conversion rate optimization consultant, CRO consulting, CRO consultant"
+---
+
+<script>
+    const correctHash = 'd8d4142e1b04a925f69838dfd7621abfe797656abc33916d7d7b89906f98859b';
+    const protectedUrl = 'TBMbHxdPV0YeBhccFAccEAELF10dS1AOAAFKBhEdFkgsAAoRAB8dBwsUXmlFHwYCDRkRCB1KPB8BCxYbDBxIBUIJFlEJDF0QS1hGXlxXUAYUElBfUUQRFkZRC1ZVEEtcEAQ=';
+    
+    async function checkPassword() {
+        const password = document.getElementById("password").value;
+        const hashed = await hashPassword(password);
+        const decryptedUrl = decryptUrl(protectedUrl, password);
+
+        console.log(hashed);
+        console.log(decryptedUrl);
+
+        if (hashed === correctHash) {
+            window.open(decryptUrl(protectedUrl, password), '_blank');
+        } else {
+            showToast('Incorrect password', 'fas fa-times-circle');
+        }
+    }
+</script>
+<section class="column">
+    <div id="title"></div>
+    <script>
+        ReactDOM.render(e(SectionTitle, { text: 'Consulting' }), document.querySelector('#title'));
+    </script>
+    <p>
+        Based on my 12+ years of experience in industry &amp; academia, at organizations of all sizes&mdash;from startups
+        to large corporations&mdash;I offer freelance services around anything
+        <span class="highlight-box">fractional leadership</span> &amp;
+        <span class="highlight-box">consulting</span> in
+        <span class="highlight-box">UX</span>,
+        <span class="highlight-box">research</span> &amp;
+        <span class="highlight-box">product</span>.
+        As Design Director at BestSecret &amp; UX Manager at C&A, I've had the opportunity to build &amp; grow top-tier UX
+        teams from scratch. Besides, I've worked as VP of Data Analytics &amp; CRO at an AR/VR startup &amp; as a researcher
+        at Unister &amp; the University of Michigan. Throughout my career, I've gained extensive experience in developing
+        strategies, implementing design &amp; innovation frameworks, leading &amp; growing UX teams, as well as branding
+        &amp; marketing.
+    </p>
+    <p>
+        On top, back in 2021, I founded
+        <a href="https://www.linkedin.com/company/jagow-speicher/" target="_blank">Jagow Speicher</a>
+        together with freelance UX Advisor
+        <a href="https://www.johannajagow.com" target="_blank">Johanna Jagow</a>.
+        Earlier in our careers, we built and ran C&A's eCommerce UX practice together as a two-person team. We're able to
+        cover everything&mdash;from foundational research to ideation to interaction design.
+    </p>
+    <p>
+        Need to develop a UX strategy?
+        Don't know where to start with a test & learn culture?
+        Looking for a usability audit of your (digital) product?
+        Anything else UX-related?
+        Let's talk about it.
+    </p>
+    <p>
+        <button onclick="window.open('https://forms.gle/fdzUcPyoSccc9CNCA', '_blank')">👋🏻 get in touch</button>
+    </p>
+</section>
+<section class="column column--short">
+    <div id="case-studies"></div>
+    <script>
+        ReactDOM.render(e(SectionTitle, { text: 'Case Studies' }), document.querySelector('#case-studies'));
+    </script>
+    <div class="form-group">
+        <input type="password" id="password" placeholder="Enter Password">
+        <label for="password">Enter Password</label>
+    </div>
+    <button id="cases-button" onclick="checkPassword();">🗂️ access case studies</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const passwordInput = document.getElementById('password');
+            const button = document.getElementById('cases-button');
+
+            passwordInput.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    button.classList.add('active');
+                    setTimeout(() => button.classList.remove('active'), 100);
+                    checkPassword();
+                }
+            });
+        });
+    </script>
+</section>
